@@ -1,24 +1,9 @@
-# primerproyecto
+Este es mi primer proyecto con VIU-cli.
 
-## Project setup
-```
-npm install
-```
+El proyecto consiste en generar una lista de notas con unos botones para ordenarlos por prioridad.
+Tambien tiene un enlace a ana Api de noticias.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+He creado varios componentes y los he unido entre si por medio de eventos.
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

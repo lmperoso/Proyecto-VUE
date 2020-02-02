@@ -2,13 +2,17 @@
 
   <section class="lista-notas">
     <div class="mx-auto w-50"> 
-      <h1>Proyecto Vue LuisMa</h1>
-      <p>Filtrar: <input type="text" v-model="filtrar"></p>
+      
+      <p>Filtrar notas: <input type="text" v-model="filtrar"></p>
       <p>Notas: <input type="text" v-model="nuevaNota"  @keyup.enter='agregarNota'
       class="form-control input-xl"></p>
       <button v-on:click="agregarNota" >Introducir</button> 
-      <button v-on:click="borrarNotasSeleccionadas" >Borrar Seleccionadas</button><br> 
-      <label>{{completadas}} tareas completadas de un total de {{totalTareas}}</label><br><br>    
+      <button  v-on:click="borrarNotasSeleccionadas" >Borrar Seleccionadas</button><br> <br>   
+       <div class="animated fadeInLeft mx-auto w-50"
+        style="margin:0px auto; width: auto; border: 1px solid #807979;
+         background-color:#342f2f; border-radius:5px; " id="tareas">
+      <label id="label">{{completadas}} tareas completadas de un total de {{totalTareas}}</label><br><br>   
+      </div> 
     </div>
 
     <div id="nota">
@@ -143,8 +147,16 @@ import nota from "./nota"
 button{
   margin-left: 100px;
 }
-#nota{
+#tareas{
+  color:red;
+
+  align-items: center;
+  text-align: center;
   
+}
+#label{
+  margin-top: 20px;
+  font-weight: bold;
 }
 
 .animacion-enter-active {

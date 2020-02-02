@@ -1,33 +1,38 @@
 <template lang="html">
 
   <section class="nota">
-  <div class="animated fadeInLeft mx-auto w-50"
+  <div class="animated fadeInLeft mx-auto w-75"
         style="margin:0px auto; width: auto; border: 1px solid #807979;
          background-color:#342f2f; border-radius:5px; ">
 
     <div id="nota">
-         
-        
-            <a v-if="this.seleccion==true" class="fas fa-circle"
-            v-bind:seleccion="this.seleccion" v-on:click="selecChek" id="chekbox"/>
-            <a  v-else class="far fa-circle"
-            v-bind:seleccion="this.seleccion" v-on:click="selecChek" id="chekbox"/>
-          <label v-bind:class="{tachar:seleccion}">{{nombre}}</label>
-        
+      <div class="row">
+        <div class="col-sm-5">
+          
+        <a class=" fa fa-circle-o  " style="float: left;margin: 3rem;font-size: 25px;" 
+        v-bind:seleccion="this.seleccion" v-if="this.seleccion==false" v-on:click="selecChek"/>
+        <a v-else class=" fa fa-check-circle" style="color:#00bc8c;float: left;margin: 3rem;font-size: 25px;" 
+        v-bind:seleccion="this.seleccion" v-on:click="selecChek"/>
+        <label id="nombre" v-bind:class="{tachar:seleccion}">{{nombre}}</label>
+        </div>
+
+    <div class="col-sm-7">
           <p id="fechaCreacion">
           <label>Prioridad: </label>
-          <button v-if="this.prioridad==2" v-on:click="cambiarPrioridad(2)" class="btn btn-danger">Alta</button>
-          <button v-else v-on:click="cambiarPrioridad(2)" class="btn btn-light"> Alta</button>
+          <button v-if="this.prioridad==2" v-on:click="cambiarPrioridad(2)" class="btn btn-danger">High</button>
+          <button v-else v-on:click="cambiarPrioridad(2)" class="btn btn-light"> High</button>
 
           <button v-if="this.prioridad==1" v-on:click="cambiarPrioridad(1)" class="btn btn-primary">Normal</button>
           <button v-else v-on:click="cambiarPrioridad(1)" class="btn btn-light"> Normal</button>
 
-          <button v-if="this.prioridad==0" v-on:click="cambiarPrioridad(0)" class="btn btn-success">Baja</button>
-          <button v-else v-on:click="cambiarPrioridad(0)" class="btn btn-light"> Baja</button>
+          <button v-if="this.prioridad==0" v-on:click="cambiarPrioridad(0)" class="btn btn-success">Low</button>
+          <button v-else v-on:click="cambiarPrioridad(0)" class="btn btn-light"> Low</button>
 
           Fecha de creacion:{{this.fecha}} <!-- {{this.fecha}} -->
           <button id="boton" v-on:click="borrarNota" class="btn btn-danger">X</button>
           </p>
+          </div>
+      </div>
           
     </div>
 
@@ -79,16 +84,21 @@
 </script>
 
 <style scoped >
- #nota {
+#nota {
   font-size: 28px;
   text-align: left;
-  align-items:unset;
-}  
-#fechaCreacion{
-  font-size: 14px;
-  margin-left: 30px;
+  align-items: unset;
+  margin-top: 30px;
+  margin-bottom: -40px;
+  font-weight: bold;
+  margin: 0 10px;
+  padding: 0;
 }
-#chekbox{
+#fechaCreacion {
+  font-size: 14px;
+  margin-top: 40px;
+}
+#chekbox {
   margin-left: 20px;
 }
 
@@ -96,21 +106,14 @@
   text-decoration: line-through;
   background-color: green;
 }
-#boton{
+#boton {
   text-align: right;
-  align-items: center;
+  align-items:unset;
   margin-left: 20px;
-  
 }
-
-/* @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-} */
+#nombre{
+  margin-top: 40px;
+align-items: flex-end;
+}
 
 </style>
